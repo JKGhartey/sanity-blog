@@ -28,7 +28,7 @@ const Posts = ({ post }: Props) => {
     formState: { errors },
   } = useForm();
 
-  const onSubmit: SubmitHandler<IFormInput> = async (data) => {
+  const onSubmit = async (data) => {
     await fetch("/api/createComment", {
       method: "POST",
       body: JSON.stringify(data),
@@ -108,7 +108,7 @@ const Posts = ({ post }: Props) => {
         </>
       ) : (
         <form
-          onSubmit={handleSubmit(onSubmit())}
+          onSubmit={handleSubmit(onSubmit)}
           className="flex flex-col p-7 my-10 max-w-2xl mx-auto mb-10"
         >
           <h3 className="text-sm text-yellow-500">Enjoyed this article?</h3>
